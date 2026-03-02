@@ -1,7 +1,7 @@
 @echo off 
-cd "C:\Users\lcl-caballerom\lynx"
 
-call conda activate lynx
+
+call "C:\Users\bwtpi\code\Lynx-PA-Module-Level-ATE\venv\Scripts\activate.bat"
 call python lynx_simple_module_level.py
 
 PAUSE

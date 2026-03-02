@@ -6,13 +6,15 @@ class ZtmModular:
     def init_resource(self, sno):
         import time
         import clr # pythonnet
-        clr.AddReference('C:\\Users\\lcl-caballerom\\lynx\\instruments\\ModularZT64_DLL\\ModularZT_NET45.dll')    # Reference the DLL
+        import os
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        clr.AddReference(os.path.join(base_dir, 'ModularZT64_DLL', 'ModularZT_NET45.dll'))    # Reference the DLL
         from ModularZT_NET45 import USB_ZT
         self.resource = USB_ZT()
         # self.resource.Connect()
         shit = ""
         # res = self.resource.Get_Available_SN_List(shit)
-        if sno == "02402230028":
+        if sno == "02501090022":
             self.resource.Connect(sno)
             
             self.switches = [

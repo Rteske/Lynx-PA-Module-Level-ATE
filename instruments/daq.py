@@ -132,7 +132,7 @@ import serial
 
 class DtechRS422:
     def __init__(self):
-        self.port = "COM4"
+        self.port = "COM3"
         self.ser = serial.Serial(self.port, baudrate=230400, parity=serial.PARITY_EVEN, stopbits=1, timeout=1, bytesize=serial.EIGHTBITS)
 
     def write_cmd(self, cmd):

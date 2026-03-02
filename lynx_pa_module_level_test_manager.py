@@ -30,20 +30,20 @@ class PaModuleTestManager:
 
             
             try:
-                self.rfpm1 = E4418BPowerMeter("GPIB0::14::INSTR", name="rfpm1")
+                self.rfpm1 = E4418BPowerMeter("GPIB0::15::INSTR", name="rfpm1")
                 log_message("POWER METER 1 OUtSPUT CONNECTED")
             except:
                 self.instruments_connection["rfpm1"] = False
 
             try:
-                self.rfpm2 = E4418BPowerMeter("GPIB0::16::INSTR", name="rfpm2")
+                self.rfpm2 = E4418BPowerMeter("GPIB0::17::INSTR", name="rfpm2")
                 log_message("POWER METER 2 input CONNECTED")
             except: 
                 self.instruments_connection["rfpm2"] = False
 
 
             try:
-                self.rfsg = E4438CSignalGenerator("GPIB0::30::INSTR")
+                self.rfsg = E4438CSignalGenerator("GPIB0::1::INSTR")
                 log_message("RFSg CONNECTED")
             except Exception as e:
                 log_message(e)
@@ -51,7 +51,7 @@ class PaModuleTestManager:
                 self.instruments_connection["rfsg"] = False
 
             try:
-                self.rfsa = MXASignalAnalyzer("TCPIP0::K-N90X0A-000005.local::hislip0::INSTR")
+                self.rfsa = MXASignalAnalyzer("TCPIP0::K-N9030B-70424.local::hislip0::INSTR")
                 log_message("RFSa CONNECTED")
             except Exception as e:
                 log_message(e)
@@ -59,7 +59,7 @@ class PaModuleTestManager:
                 log_message("RFSa NOt CONNECTED")
 
             try:
-                self.na = PNAXNetworkAnalyzer("TCPIP0::K-Instr0000.local::hislip0::INSTR")
+                self.na = PNAXNetworkAnalyzer("TCPIP0::k-n5245b-81290::inst0::INSTR")
                 log_message("NA CONNECTED")
             except:
                 self.instruments_connection["na"] = False
@@ -67,7 +67,7 @@ class PaModuleTestManager:
 
             try:
 
-                self.temp_probe = Agilent34401A("GPIB0::29::INSTR")
+                self.temp_probe = Agilent34401A("GPIB0::16::INSTR")
                 log_message("TEMP PROBE 1 CONNECTED")
             except:
                 log_message("Failed to connect to temp probe")
@@ -81,7 +81,7 @@ class PaModuleTestManager:
                 self.instruments_connection["temp_probe2"] = False
 
             try:
-                self.power_supply = PowerSupply(visa_address="GPIB0::6::INSTR")
+                self.power_supply = PowerSupply(visa_address="GPIB0::18::INSTR")
             except:
                 self.instruments_connection["power_supply"] = False
 
@@ -93,7 +93,7 @@ class PaModuleTestManager:
 
             try:
                 self.switch_bank = ZtmModular()
-                self.switch_bank.init_resource("02402230028")
+                self.switch_bank.init_resource("02501090022")
                 self.switch_bank.reset_all_switches()
             except Exception as e:
                 log_message(e)
